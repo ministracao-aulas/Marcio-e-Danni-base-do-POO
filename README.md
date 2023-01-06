@@ -1,4 +1,4 @@
-## Base do POO com PHP
+## Base do POO
 
 * Pilares do POO
     - Abstração
