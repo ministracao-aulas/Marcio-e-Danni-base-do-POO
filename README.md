@@ -4,7 +4,7 @@
     - Abstração
     - Encapsulamento
     - Herança
-    - Polimorfismo
+    - Polimorfismo - capacidade de uma classe filha modificar comportamentos herdados da classe mãe
 * Traits
 * Namespaces (Revisão)
 * Autoload
