@@ -5,7 +5,9 @@
     - Encapsulamento
     - Herança
     - Polimorfismo - capacidade de uma classe filha modificar comportamentos herdados da classe mãe
+    - Métodos e atributos finais (final)
 * Traits
+* Interfaces
 * Namespaces (Revisão)
 * Autoload
 
