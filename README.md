@@ -5,9 +5,15 @@
     - Encapsulamento
     - Herança
     - Polimorfismo
+* métodos e atributos estáticos
+    - this VS static VS self
+* Constantes de classes
+    - __CLASS__, __METHOD__, ...
+    - ::class
 * Traits
 * Namespaces (Revisão)
 * Autoload
+* Métodos mágicos (__call, __callStatic, __conctruct, __destruct, __toString)
 
 ----
 

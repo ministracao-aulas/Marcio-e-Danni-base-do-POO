@@ -1,6 +1,10 @@
 <?php
-class Dad
 
+use Core\TestCore\Test;
+
+require_once __DIR__ . '/../../../custom_autoloader.php';
+
+class Dad
 {
     public $nome;
     private $senha;
@@ -12,35 +16,35 @@ class Dad
         $this->nome = $nome;
         $this->senha = $senha;
         $this->email = $email;
-        $this->idade =(int)$idade;
+        $this->idade = (int) $idade;
     }
 
-    public  function get_nome()
+    public  function getNome()
     {
         return $this->nome;
 
     }
-    public  function set_nome($nome)
+    public  function setNome($nome)
     {
         $this->nome = $nome;
 
     }
-    public  function get_senha()
+    public  function getSenha()
     {
         return $this->senha;
 
     }
-    public  function set_senha($senha)
+    public  function setSenha($senha)
     {
         return $this->senha = $senha;
 
     }
-    public  function get_idade()
+    public  function getIdade()
     {
         return $this->idade;
 
     }
-    public  function set_idade($idade)
+    public  function setIdade($idade)
     {
         return $this->idade = $idade;
 
@@ -60,51 +64,56 @@ class Son extends Dad
         $this->endereco = $endereco;
         $this->tel = $tel;
     }
-   
-    public function get_altura()
+
+    public function getAltura()
     {
         return $this->altura;
     }
 
-    public function set_altura($endereco)
+    public function setAltura($endereco)
     {
         $this-> endereco = $endereco;
     }
 
-    public function get_endereco()
+    public function getEndereco()
     {
         return $this->altura;
     }
 
-    public function set_endereco($endereco)
+    public function setEndereco($endereco)
     {
         $this-> endereco = $endereco;
     }
-    public function get_tel()
+
+    public function getTel()
     {
         return $this->tel;
     }
 
-    public function set_tel($tel)
+    public function setTel($tel)
     {
         $this-> tel = $tel;
     }
-    public function get_idade()
+
+    public function getIdade()
     {
-        // return $this->idade;
-        return($this->idade * 52.115);
+        return $this->idade;
+    }
+
+    public function getIdadeEmSemanas()
+    {
+        return ($this->getIdade() * 52.115);
     }
 }
 
-
 // idade convertida de anos para semana
-   
+
 class Mom extends Son
 {
     public $sobrenome;
     protected $cpf;
     private $anoNascimento;
-    
+
 
     public function __construct($sobrenome, $cpf, $anoNascimento)
     {
@@ -122,12 +131,12 @@ class Mom extends Son
     {
         $this->sobrenome = $sobrenome;
     }
-   
+
     public function get_cpf($cpf)
     {
         return $this->cpf;
     }
-    
+
     public function set_cpf($cpf)
     {
         $this->cpf = $cpf ;
@@ -144,18 +153,25 @@ class Mom extends Son
     }
 }
 
+$pai = new Dad('marcio', '123', 22, 'marcio@marcio.com');
+$filho = new Son('1.89', 'rua zé', '119999-999', 'Marcio', '123', 'marcio@marcio.com', 22);
 
+//  = fn  => $outputResult($expect === $currentValue);
 
-$pai = new Dad('marcio', '123', 22,'marcio@marcio.com');
-$filho = new Son('1.89', 'rua zé', '119999-999','Marcio', '123','marcio@marcio.com',22);
-echo $filho->get_idade() .PHP_EOL;
-echo $pai->get_nome() .PHP_EOL;
+$idade = 22;
 
-$pai->set_nome('Daniela');
-$filho->set_nome('Marcio');
+Test::expect($filho->getIdade(), $idade, "A idade precisa ser igual a {$idade}");
 
-echo $pai->get_nome() .PHP_EOL;
-echo $filho->get_nome() .PHP_EOL;
+$idadeEmSemanas = ($idade * 52.115);
+Test::expect($filho->getIdadeEmSemanas(), $idadeEmSemanas, "A idade em semanas precisa ser igual a {$idadeEmSemanas}");
 
+Test::expect($pai->getNome(), 'marcio', 'O nome do pai precisa ser marcio');
 
-#public function __construct($altura, $endereco, $tel,$nome,$senha, $idade, $email)
+$pai->setNome('Daniela');
+Test::expect($pai->getNome(), 'Daniela', 'O nome do pai precisa ser Daniela');
+
+$pai->setNome('Marcio');
+Test::expect($pai->getNome(), 'Marcio', 'O nome do pai precisa ser Marcio');
+
+$filho->setNome('Marcio');
+Test::expect($filho->getNome(), 'Marcio', 'O nome do filho precisa ser Marcio');
