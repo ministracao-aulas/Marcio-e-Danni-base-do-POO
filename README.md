@@ -1,15 +1,16 @@
-## Base do POO
+## Base do POO com PHP
 
 * Pilares do POO
     - Abstração
     - Encapsulamento
     - Herança
     - Polimorfismo
-* métodos e atributos estáticos
+* Métodos e atributos estáticos
     - this VS static VS self
 * Constantes de classes
     - __CLASS__, __METHOD__, ...
     - ::class
+    - Polimorfismo - capacidade de uma classe filha modificar comportamentos herdados da classe mãe
 * Traits
 * Namespaces (Revisão)
 * Autoload
